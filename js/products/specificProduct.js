@@ -1,4 +1,4 @@
-import { productsStok } from "../constants/stok.js";
+/*import { productsStok } from "../constants/stok.js";*/
 
 const title = document.querySelector("title");
 const titlePage = document.querySelector("#titleOfPage");
@@ -22,17 +22,29 @@ const id = params.get("id");
 if (id === null) {
     window.history.back();
 }
-function titleOfPage() {
-    title.innerHTML = `Rainydays | ${productsStok[id].type}`;
-    titlePage.innerHTML = `<h1 class="title-page">${productsStok[id].type}</h1>`;
-    specificMenu.innerHTML = `<li class="products-menu-option specific">${productsStok[id].type}</li>`;
+console.log(queryString);
+/*async function getProducts(url) {
+    const response = await fetch(url);
+    const products = await response.json();
+    products.forEach(function (product) {
+        title.innerHTML = `Rainydays | ${product.name}`;
+        titlePage.innerHTML = `<h1 class="title-page">${product.name}</h1>`;
+        specificMenu.innerHTML = `<li class="products-menu-option specific">${product.name}</li>`;
+    });
 }
-titleOfPage(id);
-function photos() {
+getProducts(queryString);*/
+/*console.log(id);
+function titleOfPage() {
+    title.innerHTML = `Rainydays | ${product[id].name}`;
+    titlePage.innerHTML = `<h1 class="title-page">${product[id].name}</h1>`;
+    specificMenu.innerHTML = `<li class="products-menu-option specific">${product[id].name}</li>`;
+}
+titleOfPage(id);*/
+/*function photos() {
     photosSpecificProduct.innerHTML = `${productsStok[id].photo}`;
 }
-photos(id);
-function details() {
+photos(id);*/
+/*function details() {
     detailsBuying.innerHTML = `<div>
     <h4>${productsStok[id].type}</h4>
     <h4>${productsStok[id].price}-, Nok</h4>
@@ -43,9 +55,9 @@ function details() {
     </div>`
     if ((productsStok[id].bestseller) === true) {
         best_seller.innerHTML = `<img src= "images/fivestars.jpg" alt= "Five star for the best seller" class="starsBest">`;
-    }
-}
-details(id);
+    }*/
+/*}
+details(id);*/
 //----------------Cart
 let cartArray = [];
 let total = 0;
