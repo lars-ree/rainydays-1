@@ -13,6 +13,7 @@ const messageError = document.querySelector(".messageError");
 const cart = document.querySelector(".cart");
 const cartList = document.querySelector(".cart-list");
 const totalContainer = document.querySelector(".total");
+
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 // get the id from the query string
@@ -22,42 +23,49 @@ const id = params.get("id");
 if (id === null) {
     window.history.back();
 }
-console.log(queryString);
-/*async function getProducts(url) {
+//------------------------SHOW THE SPECIFIC PRODUCT-------------------------// 
+const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products/";
+async function fetchSpecificProduct(url) {
     const response = await fetch(url);
-    const products = await response.json();
-    products.forEach(function (product) {
-        title.innerHTML = `Rainydays | ${product.name}`;
-        titlePage.innerHTML = `<h1 class="title-page">${product.name}</h1>`;
-        specificMenu.innerHTML = `<li class="products-menu-option specific">${product.name}</li>`;
-    });
+    const specificProduct = await response.json();
+    const selectedProduct = specificProduct[id];
+    console.log(selectedProduct);
+    showSelectedProduct(selectedProduct)
 }
-getProducts(queryString);*/
-/*console.log(id);
-function titleOfPage() {
-    title.innerHTML = `Rainydays | ${product[id].name}`;
-    titlePage.innerHTML = `<h1 class="title-page">${product[id].name}</h1>`;
-    specificMenu.innerHTML = `<li class="products-menu-option specific">${product[id].name}</li>`;
+fetchSpecificProduct(url);
+function showSelectedProduct(selectedProduct) {
+    titleOfPage(selectedProduct);
+    photos(selectedProduct);
+    details(selectedProduct);
 }
-titleOfPage(id);*/
-/*function photos() {
-    photosSpecificProduct.innerHTML = `${productsStok[id].photo}`;
+function titleOfPage(selectedProduct) {
+    titlePage.innerHTML = `<h1 class="title-page">${selectedProduct.name}</h1>`;
+    specificMenu.innerHTML = `<li class="products-menu-option specific">${selectedProduct.name}</li>`;
 }
-photos(id);*/
-/*function details() {
+function photos(selectedProduct) {
+    photosSpecificProduct.innerHTML = `<img src=${selectedProduct.images[0].src}  alt="${selectedProduct.images[0].alt}">`;
+}
+function details(selectedProduct) {
     detailsBuying.innerHTML = `<div>
-    <h4>${productsStok[id].type}</h4>
-    <h4>${productsStok[id].price}-, Nok</h4>
-    <h4>Watterproof: ${productsStok[id].waterproof}</h4>
-    <h4>Hours outside: until ${productsStok[id].hoursOut} hours</h4>
-    <h4>Suitable for until ${productsStok[id].minTemp}°C</h4>
-    <h4 class ="unit">Only remain ${productsStok[id].units} units</h4>
+    <h4>${selectedProduct.name}</h4>
+    <h4>${selectedProduct.prices.price}-, Nok</h4>
     </div>`
-    if ((productsStok[id].bestseller) === true) {
+    /*if ((selectedProduct.bestseller) === true) {
         best_seller.innerHTML = `<img src= "images/fivestars.jpg" alt= "Five star for the best seller" class="starsBest">`;
     }*/
-/*}
-details(id);*/
+}
+//------------------------------SHOW THE BEST SELLERS PRODUCTS---------------------//
+/*const featuredUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?featured=true";
+async function fetchSpecificBS(url) {
+    const response = await fetch(url);
+    const specificBS = await response.json();
+    const selectedBS = specificBS[id].id;
+    console.log(selectedBS);
+    //showSelectedProduct(selectedProduct)
+}
+fetchSpecificBS(url);*/
+
+
 //----------------Cart
 let cartArray = [];
 let total = 0;
@@ -69,9 +77,9 @@ function submitForm(event) {
                 {
                     color: radios[i].value,
                     sizeChoice: size.value,
-                    productType: productsStok[id].type,
-                    productPrice: productsStok[id].price,
-                    productPhoto: productsStok[id].photo,
+                    productType: selectedProduct.name,
+                    productPrice: selectedProduct.prices.price,
+                    productPhoto: selectedProduct.images[0].src,
                 }
             );
         }
