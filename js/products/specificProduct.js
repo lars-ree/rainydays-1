@@ -39,8 +39,20 @@ async function fetchSpecificProduct() {
     </div>`;
 }
 fetchSpecificProduct();
-
-
+const bsProductsUrl = url + "?featured=true";
+async function bestsProduct() {
+    const response = await fetch(bsProductsUrl);
+    const allBSProduct = await response.json();
+    console.log(allBSProduct);
+    for (let i = 0; i < allBSProduct.length; i++) {
+        console.log(allBSProduct[i].id);
+        if (allBSProduct[i].id === parseInt(id)) {
+            best_seller.innerHTML =
+                `<img src= "images/fivestars.jpg" alt= "Five star for the best seller" class="starsBest-products"></img>`;
+        }
+    }
+}
+bestsProduct();
 
 /*
 async function fetchSpecificBS(url) {

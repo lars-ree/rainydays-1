@@ -21,6 +21,12 @@
     margin-top: 3%;
     max-width: 800px;
 }
+.best_seller{
+    margin-top: 10%;
+}
+.starsBest-products{
+    max-width: 40%;
+}
 .products-menu{
     display: block;
     position: fixed;
