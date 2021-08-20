@@ -13,19 +13,19 @@ const messageError = document.querySelector(".messageError");
 const cart = document.querySelector(".cart");
 const cartList = document.querySelector(".cart-list");
 const totalContainer = document.querySelector(".total");
-const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products/";;
+const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 // get the id from the query string
 const id = params.get("id");
-console.log(id);
+
 // if the id is null (doesn't exist) redirect to the home page
 if (id === null) {
     window.history.back();
 }
 //------------------------SHOW THE SPECIFIC PRODUCT-------------------------// 
-const selectedProduct = url + id;
+const selectedProduct = `${url}/${id}`;
 console.log(selectedProduct);
 async function fetchSpecificProduct() {
     const response = await fetch(selectedProduct);
@@ -39,6 +39,8 @@ async function fetchSpecificProduct() {
     </div>`;
 }
 fetchSpecificProduct();
+
+
 
 /*
 async function fetchSpecificBS(url) {
