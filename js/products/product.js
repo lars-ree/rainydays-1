@@ -1,3 +1,4 @@
+const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
 const baseUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=20";
 const productsCollections = document.querySelector(".products_collections");
 const featuredUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?featured=true";
@@ -9,7 +10,7 @@ async function getProducts(url) {
     for (let i = 0; i < products.length; i++) {
         const idProduct = products[i];
         productsCollections.innerHTML += `
-        <a href = "/specific_product.html?id=${i}">
+        <a href = "/specific_product.html?id=${idProduct.id}">
         <div class="productsCards" > <h2>${idProduct.name}</h2>
         <div class="spotlightImage">
         <img src= ${idProduct.images[0].src} alt="${idProduct.images[0].alt}">
@@ -17,8 +18,9 @@ async function getProducts(url) {
         <h4 class="productPrice">${idProduct.prices.price}, - Nok</h4>
         </div></a>`
     }
+    bsProducts(featuredUrl);
 }
-getProducts(baseUrl);
+getProducts(url);
 //-----------------------BEST SELLERS SECTION---------------------------//
 async function bsProducts(url) {
     const response = await fetch(url);
@@ -27,16 +29,16 @@ async function bsProducts(url) {
     for (let i = 0; i < bsProducts.length; i++) {
         bestSeller.innerHTML +=
             `<a href = "/specific_product.html?id=${bsProducts[i].id}"> <div class="productsCards">
-        <h4 class="productType">${bsProducts[i].name}</h4>
-        <div class="spotlightImage">
-        <img src= ${bsProducts[i].images[0].src} alt="${bsProducts[i].images[0].alt}">
-        </div>
-        <h4 class="productPrice">${bsProducts[i].prices.price}, - Nok</h4>
-        <img src= "images/fivestars.jpg" alt= "Five star for the best seller" class="starsBest-products_cards"></img>
-        </div></a>`
+                <h4 class="productType">${bsProducts[i].name}</h4>
+                <div class="spotlightImage">
+                <img src= ${bsProducts[i].images[0].src} alt="${bsProducts[i].images[0].alt}">
+                </div>
+                <h4 class="productPrice">${bsProducts[i].prices.price}, - Nok</h4>
+                <img src= "images/fivestars.jpg" alt= "Five star for the best seller" class="starsBest-products_cards"></img>
+                </div></a>`
     }
 }
-bsProducts(featuredUrl);
+
 
 /*if (featured === true) {
     bestSeller.innerHTML += `
