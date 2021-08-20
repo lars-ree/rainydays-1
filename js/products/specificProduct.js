@@ -13,7 +13,7 @@ const messageError = document.querySelector(".messageError");
 const cart = document.querySelector(".cart");
 const cartList = document.querySelector(".cart-list");
 const totalContainer = document.querySelector(".total");
-const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=20";;
+const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products/";;
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -25,39 +25,20 @@ if (id === null) {
     window.history.back();
 }
 //------------------------SHOW THE SPECIFIC PRODUCT-------------------------// 
+const selectedProduct = url + id;
+console.log(selectedProduct);
 async function fetchSpecificProduct() {
-    const response = await fetch(url);
-    const allProducts = await response.json();
-    console.log(allProducts);
-    for (let i = 0; i < allProducts.length; i++) {
-        const idSelectedProduct = allProducts[i].id;
-        if (idSelectedProduct === parseInt(id)) {
-            const selectedProduct = allProducts[i];
-            showSelectedProduct(selectedProduct);
-        }
-    }
+    const response = await fetch(selectedProduct);
+    const singleProduct = await response.json();
+    titlePage.innerHTML = `<h1 class="title-page">${singleProduct.name}</h1>`;
+    specificMenu.innerHTML = `<li class="products-menu-option specific">${singleProduct.name}</li>`;
+    photosSpecificProduct.innerHTML = `<img src=${singleProduct.images[0].src}  alt="${singleProduct.images[0].alt}">`;
+    detailsBuying.innerHTML = `<div>
+    <h4>${singleProduct.name}</h4>
+    <h4>${singleProduct.prices.price}-, Nok</h4>
+    </div>`;
 }
 fetchSpecificProduct();
-
-function showSelectedProduct(selectedProduct) {
-    titleOfPage(selectedProduct);
-    photos(selectedProduct);
-    details(selectedProduct);
-    bestSeller(selectedProduct);
-}
-function titleOfPage(selectedProduct) {
-    titlePage.innerHTML = `<h1 class="title-page">${selectedProduct.name}</h1>`;
-    specificMenu.innerHTML = `<li class="products-menu-option specific">${selectedProduct.name}</li>`;
-}
-function photos(selectedProduct) {
-    photosSpecificProduct.innerHTML = `<img src=${selectedProduct.images[0].src}  alt="${selectedProduct.images[0].alt}">`;
-}
-function details(selectedProduct) {
-    detailsBuying.innerHTML = `<div>
-    <h4>${selectedProduct.name}</h4>
-    <h4>${selectedProduct.prices.price}-, Nok</h4>
-    </div>`
-}
 
 /*
 async function fetchSpecificBS(url) {
