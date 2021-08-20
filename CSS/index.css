@@ -22,6 +22,9 @@ main{
 .starsBest{
     max-width: 30%;
 }
+.starsBest-products_cards{
+    max-width: 90%;
+}
 .welcome_wrap{
     position: relative;
     margin-top: 8%;

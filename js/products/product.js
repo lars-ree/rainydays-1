@@ -1,17 +1,17 @@
 const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
-const baseUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=20";
+const perPageUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=20";
 const productsCollections = document.querySelector(".products_collections");
 const featuredUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?featured=true";
 const bestSeller = document.querySelector(".bestSeller");
 //-----------------------PRODUCTS SECTION---------------------------//
-async function getProducts(url) {
-    const response = await fetch(url);
+async function getProducts() {
+    const response = await fetch(perPageUrl);
     const products = await response.json();
     for (let i = 0; i < products.length; i++) {
         const idProduct = products[i];
         productsCollections.innerHTML += `
         <a href = "/specific_product.html?id=${idProduct.id}">
-        <div class="productsCards" > <h2>${idProduct.name}</h2>
+        <div class="productsCards"> <h2>${idProduct.name}</h2>
         <div class="spotlightImage">
         <img src= ${idProduct.images[0].src} alt="${idProduct.images[0].alt}">
         </div>
@@ -20,7 +20,7 @@ async function getProducts(url) {
     }
     bsProducts(featuredUrl);
 }
-getProducts(url);
+getProducts(perPageUrl);
 //-----------------------BEST SELLERS SECTION---------------------------//
 async function bsProducts(url) {
     const response = await fetch(url);

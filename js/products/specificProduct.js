@@ -13,7 +13,7 @@ const messageError = document.querySelector(".messageError");
 const cart = document.querySelector(".cart");
 const cartList = document.querySelector(".cart-list");
 const totalContainer = document.querySelector(".total");
-const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
+const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=20";;
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
