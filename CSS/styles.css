@@ -180,14 +180,13 @@ nav{
     position: fixed;
     z-index: 1000;
 }
-nav ul,
 .cart ul{
     padding: 4%;
     margin: 4%;
 }
 li{
     list-style: none;
-    padding: 3%;
+    padding: 3% 0 10% 0;
 }
 @keyframes menu{
         0% {left: -1000px;}

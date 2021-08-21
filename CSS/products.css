@@ -147,6 +147,14 @@
     #addCart{
         margin: 6% auto 5% auto;
     }
+    .products-menu{
+        position: fixed;
+        max-width: 21%;   
+    }
+    #products_current a{
+        font-size: 1.5em;
+    }
+
 }    
 @media (min-width:600px){
     footer{
