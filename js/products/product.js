@@ -3,10 +3,14 @@ const perPageUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per
 const productsCollections = document.querySelector(".products_collections");
 const featuredUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?featured=true";
 const bestSeller = document.querySelector(".bestSeller");
+const waterproof = document.querySelector("#waterproof");
+const ski = document.querySelector("#ski");
+const windbreaker = document.querySelector("#windbreaker");
+const accessories = document.querySelector("#accessories");
 //-----------------------PRODUCTS SECTION---------------------------//
-async function getProducts() {
-    const response = await fetch(perPageUrl);
-    const products = await response.json();
+async function getProducts(url) {
+    const response = await fetch(url);
+    const products = await response.json(url);
     for (let i = 0; i < products.length; i++) {
         const idProduct = products[i];
         productsCollections.innerHTML += `
@@ -18,7 +22,7 @@ async function getProducts() {
         <h4 class="productPrice">${idProduct.prices.price}, - Nok</h4>
         </div></a>`
     }
-    bsProducts(featuredUrl);
+    //bsProducts(featuredUrl);
 }
 getProducts(perPageUrl);
 //-----------------------BEST SELLERS SECTION---------------------------//
@@ -38,7 +42,39 @@ async function bsProducts(url) {
                 </div></a>`
     }
 }
+bsProducts(featuredUrl);
+//-----------------------CATEGORIES MENU---------------------------//
+waterproof.addEventListener("click", waterproofProducts);
+function waterproofProducts(event) {
+    productsCollections.innerHTML = " ";
+    const newUrl = url + `?category=19`;
+    getProducts(newUrl);
+}
+ski.addEventListener("click", skiProducts);
+function skiProducts(event) {
+    productsCollections.innerHTML = " ";
+    const newUrl = url + `?category=18`;
+    getProducts(newUrl);
+}
+windbreaker.addEventListener("click", windbreakerProducts);
+function windbreakerProducts(event) {
+    productsCollections.innerHTML = " ";
+    const newUrl = url + `?category=17`;
+    getProducts(newUrl);
+}
+accessories.addEventListener("click", accessoriesProducts);
+function accessoriesProducts(event) {
+    productsCollections.innerHTML = " ";
+    const newUrl = url + `?category=16`;
+    getProducts(newUrl);
+}
 
+/*waterproof.onclick = function (event) {
+    productsCollections = " ";
+    newUrl = url + `?category=19`;
+    console.log(newUrl);
+    getProducts(newUrl);
+}*/
 
 /*if (featured === true) {
     bestSeller.innerHTML += `

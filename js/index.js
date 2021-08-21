@@ -1,20 +1,22 @@
 //import { productsStok } from "../js/constants/stok.js";
 const indexProducts = document.querySelector(".index-products");
 const bestProducts = document.querySelector(".bestProducts");
-const perPageUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=3";
+const perPageUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=6";
 const featuredUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?featured=true";
 //-----------------------PRODUCTS SECTION---------------------------//
 async function getProducts() {
     const response = await fetch(perPageUrl);
     const products = await response.json();
     for (let i = 0; i < products.length; i++) {
-        const idProduct = products[i];
-        indexProducts.innerHTML += `
+        const idProduct = (products[i]);
+        if (((idProduct.id) % 2) === 0) {
+            indexProducts.innerHTML += `
         <a href = "/specific_product.html?id=${idProduct.id}">
         <div class="productsCards"> <h2>${idProduct.name}</h2>
         <img src= ${idProduct.images[0].src} alt="${idProduct.images[0].alt}" class="spotlightImage">
         <h4 class="productPrice">${idProduct.prices.price}, - Nok</h4>
         </div></a>`
+        }
     }
     bsProducts(featuredUrl);
 }

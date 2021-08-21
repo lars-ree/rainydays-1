@@ -29,7 +29,7 @@
 }
 .products-menu{
     display: block;
-    position: fixed;
+    position: absolute;
     left: 1%;
     background: #EFF1E2;
     height: max-content;
@@ -39,6 +39,12 @@
 }
 #products_current a{
     color: #908E83;
+    font-size: 1.7em;
+}
+.buttonProductsMenu{
+    border: none;
+    background: none;
+    text-transform: inherit;
 }
 .products_collections img,
 .bestSeller img{
@@ -146,11 +152,12 @@
     footer{
         margin-top: 20%;
     }
-    .products-menu-option{
+    .products-menu-option,
+    .buttonProductsMenu{
         display: block;
         border: none;
-        font-size: 1.7em;
-        padding: 10px 0;
+        font-size: 1.3em;
+        padding: 10px 10px;
         margin-left: 8%;
     }
     #products-menu ul{
