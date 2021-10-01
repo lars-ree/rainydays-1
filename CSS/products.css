@@ -100,6 +100,36 @@
 #cta_back{
     left: 2%;
 }
+#modal{
+    display: none;
+    position: fixed;
+    z-index: 300;
+    top: 0;
+    left: 0;
+    padding:3%;
+    box-shadow: 5px 5px 10px rgba(136, 127, 127, 0.3);
+    width: 95%;
+    height: 100%;
+    animation-name: bigger;
+    animation-duration: 0.4s;
+    background: rgba(45, 77, 64, 0.438);
+}
+@keyframes bigger {
+  from {transform:scale(0.5)}
+  to {transform:scale(1)}
+}
+#modal img{
+    max-width: 95%;
+    height: 35%;
+    position: relative;
+}
+#close{
+    position: fixed;
+}
+#modal img,
+#close{
+    top: 10%;
+}
 /*Cart*/
 .cart{
     border: 2px solid #595452;
@@ -124,6 +154,18 @@
     border: none;
     border-radius: 50%;
     background-size: cover;
+}
+@media (min-width:350px) and (max-width:520px){
+    #modal img{
+        width: 100%;
+        height: 44%;
+    }
+}
+@media (min-width:521px) and (max-width: 1032px){
+    #modal img{
+        width: 120%;
+        height: 55%;
+    }
 }
 @media (min-width:320px) and (max-width:599px){
     .products_collections,
@@ -154,7 +196,6 @@
     #products_current a{
         font-size: 1.5em;
     }
-
 }    
 @media (min-width:600px){
     footer{
@@ -191,5 +232,11 @@
     .size_color{
         margin-left: 5%;
         border-left: 1px solid #707070;
+    }
+}
+@media (min-width:1033px){
+    #modal img{
+        width: 60%;
+        height: 80%;
     }
 }
