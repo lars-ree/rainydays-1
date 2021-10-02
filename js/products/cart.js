@@ -1,6 +1,24 @@
+const form = document.querySelector("form");
+const radios = document.getElementsByName("color");
+const size = document.querySelector("#size");
 const cart = document.querySelector(".cart");
 const cartList = document.querySelector(".cart-list");
 const totalContainer = document.querySelector(".total");
+const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
+
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+// get the id from the query string
+const id = params.get("id");
+
+const selectedProduct = `${url}/${id}`;
+let singleProduct = {};
+
+async function fetchSpecificProduct() {
+    const response = await fetch(selectedProduct);
+    singleProduct = await response.json();
+}
+fetchSpecificProduct();
 let cartArray = [];
 let total = 0;
 function submitForm(event) {
@@ -11,9 +29,10 @@ function submitForm(event) {
                 {
                     color: radios[i].value,
                     sizeChoice: size.value,
-                    productType: selectedProduct.name,
-                    productPrice: selectedProduct.prices.price,
-                    productPhoto: selectedProduct.images[0].src,
+                    productType: singleProduct.name,
+                    productPrice: singleProduct.prices.price,
+                    productPhoto: singleProduct.images[0].src,
+                    productPhotoAlt: singleProduct.images[0].alt,
                 }
             );
         }
@@ -32,7 +51,7 @@ function showCart() {
     for (let i = 0; i < cartArray.length; i++) {
         cartList.innerHTML +=
             `<div class="cart-productChosen">
-        <figure class = "checkout-modal_photo">${cartArray[i].productPhoto}</figure>
+        <figure class = "checkout-modal_photo"><img src=${cartArray[i].productPhoto}  alt="${cartArray[i].productPhotoAlt}"></figure>
         <h5 class="cart-item">${cartArray[i].productType}</h5>
         <h5 class="cart-item">Price: ${cartArray[i].productPrice},-</h5>
         <h5 class="cart-item">Size: ${cartArray[i].sizeChoice}</h5>

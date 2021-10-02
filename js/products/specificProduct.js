@@ -4,9 +4,6 @@ const specificMenu = document.querySelector(".wrap_products-menu-option");
 const photosSpecificProduct = document.querySelector(".photos_specific-product");
 const detailsBuying = document.querySelector(".details_buying");
 const best_seller = document.querySelector(".best_seller");
-const form = document.querySelector("form");
-const radios = document.getElementsByName("color");
-const size = document.querySelector("#size");
 const messageError = document.querySelector(".messageError");
 const modal = document.querySelector("#modal");
 const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
@@ -22,7 +19,7 @@ if (id === null) {
 }
 //------------------------SHOW THE SPECIFIC PRODUCT-------------------------// 
 const selectedProduct = `${url}/${id}`;
-console.log(selectedProduct);
+
 async function fetchSpecificProduct() {
     const response = await fetch(selectedProduct);
     const singleProduct = await response.json();

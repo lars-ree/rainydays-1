@@ -33,12 +33,13 @@ const myTotal = document.querySelector(".myTotal");
 const edit = document.querySelector("#edit");
 //--------------------------Product buy
 const cartItems = JSON.parse(localStorage.getItem("cartList"));
+console.log(cartItems);
 let total = 0;
 cartItems.forEach(function (cartElement) {
     total += cartElement.productPrice;
     myProduct.innerHTML +=
         `<div class="cart-productChosen">
-    <figure class = "checkout-modal_photo">${cartElement.productPhoto}</figure>
+    <figure class = "checkout-modal_photo"><img src= "${cartElement.productPhoto}" alt="${cartElement.productPhotoAlt}"></figure>
     <h5 class="cart-item">${cartElement.productType}</h5>
     <h5 class="cart-item">Price: ${cartElement.productPrice},-</h5>
     <h5 class="cart-item">Size: ${cartElement.sizeChoice}</h5>
