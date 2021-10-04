@@ -62,8 +62,9 @@ function showTotal() {
     totalContainer.innerHTML = "";
     let total = 0;
     for (let i = 0; i < cartArray.length; i++) {
-        total += (cartArray[i].productPrice);
-        totalContainer.innerHTML = `Total: ${total}`;
+        total += Number(cartArray[i].productPrice);
+        console.log(total);
+        totalContainer.innerHTML = `<h4>Total: ${total} Nok</h4>`;
     }
 }
 function saveData() {
