@@ -2,7 +2,6 @@
 #cta_back-success{
     background-color: #F1F2E6;
     border-radius: 40px;
-    width: 6%;
     padding: 1% 2%;
     justify-content: center;
     position: relative;
@@ -156,7 +155,7 @@ i.fas.fa-cart-plus{
     left: 8%;
 }
 #cta_back-success{
-    left: 2%;
+    left: 10%;
 }
 .cta-contact_send{
     position: relative;
@@ -204,6 +203,7 @@ i.fas.fa-cart-plus{
     .cta_edit,
     .cta_done{
         width: 40%;
+        margin:8% 10%
     }
     .cta_continuebuying{
         max-width: 30%;

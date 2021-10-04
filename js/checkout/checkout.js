@@ -1,7 +1,6 @@
-/*const done = document.querySelector("button");*/
 const myProduct = document.querySelector("#myProduct");
 const myTotal = document.querySelector(".myTotal");
-
+const shoppingCart = document.querySelector(".shoppingCart");
 //--------------------------Product buy
 const cartItems = JSON.parse(localStorage.getItem("cartList"));
 console.log(cartItems);
@@ -17,3 +16,10 @@ cartItems.forEach(function (cartElement) {
     <h5 class="cart-item">Color: ${cartElement.color}</h5></div>`;
 });
 myTotal.innerHTML = `Total: ${total} Nok`;
+
+function fullCart() {
+    if (total !== 0) {
+        shoppingCart.innerHTML = `<i class="fas fa-cart-plus"></i>`;
+    }
+}
+fullCart();

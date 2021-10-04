@@ -23,7 +23,9 @@ label,
 .buyer_card-cvv,
 .checked,
 .fa-smile-wink,
-.myTotal{
+.myTotal,
+.fa-facebook-f,
+.fa-instagram{
     font-family: 'Work Sans', sans-serif;
     font-weight: 600;
     text-decoration: none;

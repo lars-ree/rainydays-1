@@ -45,6 +45,10 @@ ul{
 li{
     list-style: none;
     padding: 7%;
+    color:#595452;
+}
+li:hover{
+    text-decoration: 2px solid underline;
 }
 @keyframes menu{
         0% {left: -1000px;}
@@ -78,7 +82,7 @@ header{
     display:flex;
 }
 .current{
-    text-decoration: underline;
+    text-decoration: 2px solid underline;
 }
 .navigation{
     order: -1;
@@ -124,43 +128,46 @@ header{
     box-shadow: 5px 5px rgba(157, 165, 150, 0.5);
     border: 3px solid rgba(204, 73, 73, 0.596);
 }
+/*Best Products stars*/
+.starsBest-products{
+    max-width: 40%;
+}
 /*Footer*/
 footer{
     display: flex;
     margin-top: 14%;
-    background: linear-gradient(0.50turn, #B8BF80, #ebf8e1, #B8BF80);
+    background-color: #d2d6b0;
     margin-top: 7%;
 }
 footer{
-    color: #5F5C54;
     margin: 2% 0;
 }
+.brand_footer,
 .footer_about,
 .footer_contactus{
     margin: 0 1%;
 }
-.footer_logo,
+.footer_about:hover,
+.footer_contactus:hover,
+.footer_products:hover{
+    text-decoration: 2px solid underline;
+}
 .social-media,
 .footer_about,
 .footer_contactus{
     padding: 2% 1% 2% 0;
     flex: auto;
 }
-.footer_logo{
-    max-width: 50%;
-}
 .email_footer{
     font-style:italic;
     color: #595452;
     text-decoration: underline;
 }
-.social-media figure{
-    margin: 0 auto;
+.wrap-face-insta{
+    display: flex;
+    cursor: pointer;
+    justify-content: space-evenly;
 }
-.social-media i{
-    text-align: center;
-}
-
 /*Media Querie - mobile*/
 @media (min-width:320px) and (max-width:599px){
 /*hamburger menu*/
@@ -199,9 +206,6 @@ li{
 .logo{
     max-width: 50%;
 }
-footer{
-    display: block;
-}
 #search{
     max-height: 70%;
 }
@@ -209,6 +213,23 @@ footer{
     border: 2px solid #595452;
     max-width: 300px;
     margin: 1% auto;
+}
+}
+@media (min-width:320px) and (max-width:699px){
+footer{
+    display: block;
+}
+.wrap_brand_phone_email{
+    text-align: center;
+}
+.social-media,
+.footer_about,
+.footer_contactus{
+    padding: 0;
+}
+footer h5{
+    margin: 3% 0;
+    text-align: center;
 }
 }
 /*Media Querie ------- Ipad and Desktop*/
@@ -245,15 +266,15 @@ footer{
     .about_wrap{
     background-position-x: 300px;
     }
+}
+@media (min-width:700px){
     footer{
         display:grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
     }
 }
 @media (min-width:1176px){
-    .current {
-        background: #F4F6F8;
-    }
     .logoImg{
         max-width: 80%;
     }
