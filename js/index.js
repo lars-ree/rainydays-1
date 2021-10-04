@@ -1,6 +1,8 @@
-
 const indexProducts = document.querySelector(".index-products");
 const bestProducts = document.querySelector(".bestProducts");
+const iconSearch = document.querySelector(".fa-search");
+const resultSearch = document.querySelector(".resultSearch");
+const baseUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
 const perPageUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=6";
 const featuredUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?featured=true";
 //-----------------------PRODUCTS SECTION---------------------------//
@@ -25,7 +27,6 @@ getProducts(perPageUrl);
 async function bsProducts(url) {
     const response = await fetch(url);
     const bsProducts = await response.json();
-    console.log(bsProducts);
     for (let i = 0; i < bsProducts.length; i++) {
         bestProducts.innerHTML +=
             `<a href = "/specific_product.html?id=${bsProducts[i].id}"> <div class="productsCards">
@@ -34,5 +35,29 @@ async function bsProducts(url) {
                 <h4 class="productPrice">${bsProducts[i].prices.price}, - Nok</h4>
                 <img src= "images/fivestars.jpg" alt= "Five star for the best seller" class="starsBest-products_cards"></img>
                 </div></a>`
+    }
+}
+//-----------Search Products--------//
+function searchProducts() {
+    const searchValue = document.querySelector("#search").value;
+    const newUrl = baseUrl + `?search=${searchValue}`;
+    console.log(newUrl);
+    indexProducts.innerHTML = " ";
+    getProductsSearch(newUrl);
+}
+iconSearch.addEventListener("click", searchProducts);
+
+async function getProductsSearch(newUrl) {
+    const response = await fetch(newUrl);
+    const products = await response.json();
+    resultSearch.innerHTML = " ";
+    for (let i = 0; i < products.length; i++) {
+        const idProduct = (products[i]);
+        resultSearch.innerHTML +=
+            `<a href = "/specific_product.html?id=${idProduct.id}">
+        <div class="productsCards"> <h3>${idProduct.name}</h3>
+        <img src= ${idProduct.images[0].src} alt="${idProduct.images[0].alt}" class="spotlightImage">
+        <h4 class="productPrice">${idProduct.prices.price}, - Nok</h4>
+        </div></a>`
     }
 }

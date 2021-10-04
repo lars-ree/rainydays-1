@@ -3,7 +3,7 @@
     border: 2px solid grey;
     text-align: center;
 }
-.productsCards h2{
+.productsCards h3{
     height: 52px;
 }
 .products_collections,
@@ -44,6 +44,9 @@
     border: none;
     background: none;
     text-transform: inherit;
+    display: block;
+    text-align: inherit;
+    margin-left: 8%;
 }
 .products_collections img,
 .bestSeller img{
@@ -188,13 +191,11 @@
     footer{
         margin-top: 20%;
     }
-    .products-menu-option,
-    .buttonProductsMenu{
+    .products-menu-option{
         display: block;
         border: none;
         font-size: 1.3em;
         padding: 10px 10px;
-        margin-left: 8%;
     }
     #products-menu ul{
         display: block;
@@ -213,7 +214,7 @@
         margin-left: 0;
     }
     .bestSellers{
-        margin-top: 10%;
+        margin-top: 12%;
         text-align: center;
     }
     .size_color{

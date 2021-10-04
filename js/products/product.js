@@ -7,6 +7,7 @@ const waterproof = document.querySelector("#waterproof");
 const ski = document.querySelector("#ski");
 const windbreaker = document.querySelector("#windbreaker");
 const accessories = document.querySelector("#accessories");
+const iconSearch = document.querySelector(".fa-search");
 //-----------------------PRODUCTS SECTION---------------------------//
 async function getProducts(url) {
     const response = await fetch(url);
@@ -15,7 +16,7 @@ async function getProducts(url) {
         const idProduct = products[i];
         productsCollections.innerHTML += `
         <a href = "/specific_product.html?id=${idProduct.id}">
-        <div class="productsCards"> <h2>${idProduct.name}</h2>
+        <div class="productsCards"> <h3>${idProduct.name}</h3>
         <div class="spotlightImage">
         <img src= ${idProduct.images[0].src} alt="${idProduct.images[0].alt}">
         </div>
@@ -68,3 +69,11 @@ function accessoriesProducts(event) {
     const newUrl = url + `?category=16`;
     getProducts(newUrl);
 }
+//-----------Search Products--------//
+function searchProducts() {
+    const searchValue = document.querySelector("#search").value;
+    const newUrl = url + `?search=${searchValue}`;
+    productsCollections.innerHTML = " ";
+    getProducts(newUrl);
+}
+iconSearch.addEventListener("click", searchProducts);
