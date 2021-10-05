@@ -8,10 +8,13 @@ const ski = document.querySelector("#ski");
 const windbreaker = document.querySelector("#windbreaker");
 const accessories = document.querySelector("#accessories");
 const iconSearch = document.querySelector(".fa-search");
+
 //-----------------------PRODUCTS SECTION---------------------------//
+productsCollections.innerHTML = `<div class = "loader"></div>`;
 async function getProducts(url) {
     const response = await fetch(url);
     const products = await response.json(url);
+    productsCollections.innerHTML = " ";
     for (let i = 0; i < products.length; i++) {
         const idProduct = products[i];
         productsCollections.innerHTML += `

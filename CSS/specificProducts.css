@@ -37,9 +37,6 @@
     margin-top: 8%;
     max-width: 30%;
 }
-#cta_back{
-    left: 2%;
-}
 #modal{
     display: none;
     position: fixed;

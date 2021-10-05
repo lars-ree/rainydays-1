@@ -6,9 +6,11 @@ const baseUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
 const perPageUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?per_page=6";
 const featuredUrl = "https://pkderlam.one/rainydays/wp-json/wc/store/products?featured=true";
 //-----------------------PRODUCTS SECTION---------------------------//
+indexProducts.innerHTML = `<div class = "loader"></div>`;
 async function getProducts() {
     const response = await fetch(perPageUrl);
     const products = await response.json();
+    indexProducts.innerHTML = " ";
     for (let i = 0; i < products.length; i++) {
         const idProduct = (products[i]);
         if (((idProduct.id) % 2) === 0) {

@@ -6,6 +6,7 @@ const detailsBuying = document.querySelector(".details_buying");
 const best_seller = document.querySelector(".best_seller");
 const messageError = document.querySelector(".messageError");
 const modal = document.querySelector("#modal");
+const loader = document.querySelector(".loader");
 const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
 
 const queryString = document.location.search;
@@ -23,6 +24,7 @@ const selectedProduct = `${url}/${id}`;
 async function fetchSpecificProduct() {
     const response = await fetch(selectedProduct);
     const singleProduct = await response.json();
+    loader.style.display = "none";
     titlePage.innerHTML = `<h1 class="title-page">${singleProduct.name}</h1>`;
     specificMenu.innerHTML = `<li class="products-menu-option specific">${singleProduct.name}</li>`;
     photosSpecificProduct.innerHTML = `<img src=${singleProduct.images[0].src}  alt="${singleProduct.images[0].alt}">`;

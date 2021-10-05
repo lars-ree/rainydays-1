@@ -132,6 +132,24 @@ header{
 .starsBest-products{
     max-width: 40%;
 }
+/*Loader*/
+.loader{
+    border: 10px solid;
+    border-top: 10px solid rgba(183, 221, 150, 0.5);
+    border-right: 10px solid rgba(191, 245, 104, 0.596);
+    border-bottom: 10px solid rgba(65, 90, 25, 0.972);
+    border-left: 10px solid rgba(4, 53, 12, 0.198);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 /*Footer*/
 footer{
     display: flex;
