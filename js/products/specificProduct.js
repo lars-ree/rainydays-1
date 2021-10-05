@@ -1,18 +1,14 @@
-import { productsStok } from "../constants/stok.js";
-
 const title = document.querySelector("title");
 const titlePage = document.querySelector("#titleOfPage");
 const specificMenu = document.querySelector(".wrap_products-menu-option");
 const photosSpecificProduct = document.querySelector(".photos_specific-product");
 const detailsBuying = document.querySelector(".details_buying");
 const best_seller = document.querySelector(".best_seller");
-const form = document.querySelector("form");
-var radios = document.getElementsByName("color");
-var size = document.querySelector("#size");
 const messageError = document.querySelector(".messageError");
-const cart = document.querySelector(".cart");
-const cartList = document.querySelector(".cart-list");
-const totalContainer = document.querySelector(".total");
+const modal = document.querySelector("#modal");
+const loader = document.querySelector(".loader");
+const url = "https://pkderlam.one/rainydays/wp-json/wc/store/products";
+
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 // get the id from the query string
@@ -22,81 +18,51 @@ const id = params.get("id");
 if (id === null) {
     window.history.back();
 }
-function titleOfPage() {
-    title.innerHTML = `Rainydays | ${productsStok[id].type}`;
-    titlePage.innerHTML = `<h1 class="title-page">${productsStok[id].type}</h1>`;
-    specificMenu.innerHTML = `<li class="products-menu-option specific">${productsStok[id].type}</li>`;
-}
-titleOfPage(id);
-function photos() {
-    photosSpecificProduct.innerHTML = `${productsStok[id].photo}`;
-}
-photos(id);
-function details() {
+//------------------------SHOW THE SPECIFIC PRODUCT-------------------------// 
+const selectedProduct = `${url}/${id}`;
+
+async function fetchSpecificProduct() {
+    const response = await fetch(selectedProduct);
+    const singleProduct = await response.json();
+    loader.style.display = "none";
+    titlePage.innerHTML = `<h1 class="title-page">${singleProduct.name}</h1>`;
+    specificMenu.innerHTML = `<li class="products-menu-option specific">${singleProduct.name}</li>`;
+    photosSpecificProduct.innerHTML = `<img src=${singleProduct.images[0].src}  alt="${singleProduct.images[0].alt}">`;
     detailsBuying.innerHTML = `<div>
-    <h4>${productsStok[id].type}</h4>
-    <h4>${productsStok[id].price}-, Nok</h4>
-    <h4>Watterproof: ${productsStok[id].waterproof}</h4>
-    <h4>Hours outside: until ${productsStok[id].hoursOut} hours</h4>
-    <h4>Suitable for until ${productsStok[id].minTemp}°C</h4>
-    <h4 class ="unit">Only remain ${productsStok[id].units} units</h4>
-    </div>`
-    if ((productsStok[id].bestseller) === true) {
-        best_seller.innerHTML = `<img src= "images/fivestars.jpg" alt= "Five star for the best seller" class="starsBest">`;
+    <h4>${singleProduct.name}</h4>
+    <h4>${singleProduct.prices.price}-, Nok</h4>
+    </div>`;
+    const img = document.querySelectorAll("img");
+    for (let i = 0; i < img.length; i++) {
+        img[i].addEventListener("click", showModal);
     }
 }
-details(id);
-//----------------Cart
-let cartArray = [];
-let total = 0;
-function submitForm(event) {
-    event.preventDefault();
-    for (let i = 0; i < radios.length; i++) {
-        if (radios[i].checked) {
-            cartArray.push(
-                {
-                    color: radios[i].value,
-                    sizeChoice: size.value,
-                    productType: productsStok[id].type,
-                    productPrice: productsStok[id].price,
-                    productPhoto: productsStok[id].photo,
-                }
-            );
+fetchSpecificProduct();
+const bsProductsUrl = url + "?featured=true";
+async function bestsProduct() {
+    const response = await fetch(bsProductsUrl);
+    const allBSProduct = await response.json();
+    console.log(allBSProduct);
+    for (let i = 0; i < allBSProduct.length; i++) {
+        console.log(allBSProduct[i].id);
+        if (allBSProduct[i].id === parseInt(id)) {
+            best_seller.innerHTML =
+                `<img src= "images/fivestars.jpg" alt= "Five star for the best seller" class="starsBest-products"></img>`;
         }
     }
-    saveData(cartArray);
-    showCart(cartArray);
-    showTotal(total);
-    form.reset();
 }
-form.addEventListener("submit", submitForm);
-
-function showCart() {
-    console.log(cartArray);
-    cart.style.display = "block";
-    cartList.innerHTML = "";
-    for (let i = 0; i < cartArray.length; i++) {
-        cartList.innerHTML +=
-            `<div class="cart-productChosen">
-        <figure class = "checkout-modal_photo">${cartArray[i].productPhoto}</figure>
-        <h5 class="cart-item">${cartArray[i].productType}</h5>
-        <h5 class="cart-item">Price: ${cartArray[i].productPrice},-</h5>
-        <h5 class="cart-item">Size: ${cartArray[i].sizeChoice}</h5>
-        <h5 class="cart-item">Color: ${cartArray[i].color}</h5></div>`;
+bestsProduct();
+//--------------------MODAL IMAGE--------------//
+function showModal(event) {
+    modal.style.display = "block";
+    modal.innerHTML = `${event.target.outerHTML} <button id="close"><i class="fas fa-times"></i></button>`;
+    const close = document.querySelector("#close");
+    close.addEventListener("click", function closeModal(event) {
+        modal.style.display = "none";
+    });
+}
+window.addEventListener("click", function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
-};
-function showTotal() {
-    totalContainer.innerHTML = "";
-    let total = 0;
-    for (let i = 0; i < cartArray.length; i++) {
-        total += (cartArray[i].productPrice);
-        totalContainer.innerHTML = `Total: ${total}`;
-    }
-}
-function saveData() {
-    localStorage.setItem("cartList", JSON.stringify(cartArray));
-}
-/*if (!cartArray.color) {
-    messageError.innerHTML = createMessage("Error", `<i class="fas fa-exclamation-triangle"></i> Please select one option of size and color! <i class="fas fa-exclamation-triangle"></i>`);
-    cartList.style.display = "none";
-}*/
+});

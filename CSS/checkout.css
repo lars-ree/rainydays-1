@@ -5,19 +5,13 @@
     background-size: cover;
     background-position-x: -10%;
 }
-
+#search{
+    margin: 0;
+}
+.fa-cart-plus{
+    padding: 30%;
+}
 /*Checkout-full*/
-.progression_bar{
-    max-width: 320px;
-    padding: 1%;
-    border: 3px solid #707070;
-    background-color: #fff;
-    margin:2% auto;
-}
-.bought_payment{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
 .wrap_gift{
     margin: 3% auto;
 }
@@ -64,11 +58,6 @@
 .cart-productChosen{
     margin-top: 1%;
 }
-/*body*/
-.bought_payment{
-    display: grid;
-    grid-template-columns: 1.7fr 3fr;
-}
 .myTotal{
     margin: 6% auto;
     text-align: center;
@@ -83,12 +72,10 @@ form{
 footer{
     margin-top: 15%;
 }
-
-
 .product_bought img{
-    max-width: 40%;
+    max-width: 45%;
     float: left;
-    margin-right: 2%;
+    margin: 0 2% 17% 0;
 }
 .bought{
    position: relative;
@@ -109,7 +96,6 @@ input[type="number"] {
 .buyer_card-cvv{
     margin: 2% 0;
 }
-
 .payment_option{
     border-top: 1px solid #707070;
     text-align: center;
@@ -149,6 +135,10 @@ input[type="number"] {
 .datails_delivery{
     text-decoration: underline;
 }
+.wrap_cta_back_continue{
+    display: flex;
+    justify-content: space-evenly;
+}
 @media (min-width:600px){
     .progression_bar{
         max-width: 500px;
@@ -172,17 +162,27 @@ input[type="number"] {
         position: relative;
         top: 10px;
     }
-    .success_wrap{
-        max-width: 600px;
+    .success_wrap,
+    .wrap_cta_back_continue{
+        max-width: 560px;
         margin: 0 auto;
         }
+    .bought_payment{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 /*Checkout empty*/
 .checkout-empty_text{
     padding-bottom: 80%;
 }
 @media (min-width:320px) and (max-width:599){
-    .checkout_wrap{
+    .bought_payment{
+        display: block;
+    }
+    .checkout_wrap,
+    .success_wrap,
+    .wrap_cta_back_continue{
         max-width: 300px;
         margin: 0 auto;
     }
@@ -199,5 +199,10 @@ input[type="number"] {
     .payment_wrap{
     position: relative;
     left: 30%;
+    }
+}
+@media (min-width:900px){
+    .checkout-modal_photo img{
+        max-width: 40%;
     }
 }

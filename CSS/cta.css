@@ -1,51 +1,38 @@
-#cta_back,
 #cta_back-success{
     background-color: #F1F2E6;
     border-radius: 40px;
-    width: 6%;
     padding: 1% 2%;
     justify-content: center;
     position: relative;
     left: 80%; 
 }
-#cta_back,
 #cta_back-success,
 .cta_done,
 .cta_productSpecific,
-.cta_addCart,
-.cta_add,
 .cta_checkout,
 .cta_edit,
 .cta-contact_send,
-.cta_wait-continuebuying,
 .cta_continuebuying{
     display: flex;
     cursor: pointer;
 }
-#cta_back,
 #cta_back-success,
 button,
 .cta_especific-products,
-.cta_add,
 .cta_checkout,
 .cta_edit,
 .cta-contact_send,
-.cta_wait-continuebuying,
 .cta_continuebuying,
 .title-page{
     color: #595452;
 }
-
-#cta_back,
 #cta_back-success,
 button,
 .cta_done,
 .cta_especific-products,
-.cta_add,
 .cta_checkout,
 .cta_edit,
 .cta-contact_send,
-.cta_wait-continuebuying,
 .cta_continuebuying,
 .title-page{
     font-family: 'Work Sans', sans-serif;
@@ -61,14 +48,11 @@ button,
     max-width: 50%;
     margin: 3% auto 1% auto;
 }
-.cta-products__winter2020-2021,
-.cta_continuebuying{
-    text-align: center;
-    max-height: 20%;
+.cta_done{
+    padding: 3%; 
 }
 .cta_done,
 .cta_continuebuying{
-    padding: 3%;
     justify-content: center;
 }
 .cta-products__winter2020-2021,
@@ -80,27 +64,11 @@ button,
 .cta-products__autumn-woman{
     background-color: #F4F6F8;
 }
-
-.cta_addCart,
-.cta_wait-continuebuying,
 .cta_continuebuying{
     width: 60%;
-}
-.cta_addCart{
-    justify-content: center;
-    background-color: #DAE1E6;
-    width: 90%;
-    padding: 5% 2%;
-    font-size: 1.2em;
-    margin-top: 40%;
-}
-.cta_add{
-    background-color: #86888A;
-    color: #FFF;
-    max-width: 20%;
-    padding: 6px;
-    margin: 0 auto;
-    text-align: center;
+    height: 20%;
+    margin-top: 10%;
+    padding: 1% 2%;
 }
 .ctas-modal_products-specific{
     display:flex;
@@ -125,38 +93,18 @@ i.fas.fa-cart-plus{
     justify-content: center;
 }
 .cta_done{
-    background-color: #86888A;
     justify-items: right;
-    margin: 7% 180%;
     font-size: 0.8em;
-    color: #FFF;
 }
-.cta-products__autumn2020,
-.cta-products__autumn-unisex,
-.cta_wait-continuebuying,
 .cta-contact_send{
     background-color: #F1F2E6;
 }
 .cta-contact_send{
     max-width: 40%;
 }
-.cta_continuebuying{
-    background: #595452;
-    color:#fff;
-    border-color: #595452;
-    position: relative;
-    top: 40px;
-    left: 60%;
-}
-.cta-products__autumn-men,
-.cta-products__autumn-woman,
-.cta-products__autumn-unisex{
-    font-size: 0.5em;
-    position: relative;
-    left: 8%;
-}
 #cta_back-success{
-    left: 2%;
+    left: 0;
+    margin: 10% auto;
 }
 .cta-contact_send{
     position: relative;
@@ -164,6 +112,13 @@ i.fas.fa-cart-plus{
 }
 .cta-contact_send:disabled{
     color: rgba(157, 165, 150, 0.7);
+}
+.cta_addCart{
+    padding: 5%;
+    width: 80%;
+}
+.cta_done{
+    margin:8% auto;
 }
 @media (min-width:600px){
     .cta_continuebuying{
@@ -178,16 +133,10 @@ i.fas.fa-cart-plus{
         max-width: 70%;
         font-size: 0.8em;
     }
-    .cta_add,
-    .cta_wait-continuebuying{
-        justify-content: center;
-    }
     .cta_done{
-        max-width: 50%;
+        width: 40%;
         padding: 2%;
-    }
-    .cta_wait-continuebuying{
-        max-width: 15%;
+        margin: 7% 100%;
     }
     button:hover{
         box-shadow: 0 10px 30px rgba(136, 127, 127, 0.3);
@@ -195,24 +144,15 @@ i.fas.fa-cart-plus{
     .cta_productSpecific{
         max-width: 80%;
     }
+    .cta_done{
+        margin: 7% 140%;
+    }
+    #cta_back-success{
+        left: -35%;
+    }
 }
 @media (min-width:300px) and (max-width:999px){
-    #cta_back,
     #cta_back-success{
         width: 20%;
-    }
-    .cta_edit,
-    .cta_done{
-        width: 40%;
-    }
-    .cta_continuebuying{
-        max-width: 30%;
-    }
-}
-@media (min-width:1000px){
-    .cta_add{
-        position: relative;
-        top: -40px;
-        left: 180px;
     }
 }

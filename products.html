@@ -49,24 +49,33 @@
                 <ul>
                     <li class="products-menu-option" id="products_current"><a href="/products.html">Products</a></li>
                     <div class="wrap_products-menu-option">
-                        <li class="products-menu-option"><a href="#waterproof">Waterproof</a></li>
-                        <li class="products-menu-option"><a href="#skiSnowboard">Ski & Snowboard</a></li>
-                        <li class="products-menu-option"><a href="#windbreaker">Windbreaker</a></li>
-                        <li class="products-menu-option"><a href="#accessories">Accessories</a></li>
+                        <button type="button" id="waterproof" class="buttonProductsMenu">
+                            <li class="products-menu-option">Waterproof</li>
+                        </button>
+                        <button type="button" id="ski" class="buttonProductsMenu">
+                            <li class="products-menu-option">Ski &
+                                Snowboard</li>
+                        </button>
+                        <button type="button" id="windbreaker" class="buttonProductsMenu">
+                            <li class="products-menu-option">Windbreaker</li>
+                        </button>
+                        <button type="button" id="accessories" class="buttonProductsMenu">
+                            <li class="products-menu-option">Accessories</li>
+                        </button>
                         <li class="products-menu-option"><a href="#bestSellers">Best Sellers</a></li>
                     </div>
                 </ul>
             </nav>
         </div>
-        <section class="products_collections"></section>
+        <div class="products_collections"></div>
         <section class="bestSellers" id="bestSellers">
             <h3 class="title_sectionProducts">Best Sellers</h3>
             <div class="bestSeller"></div>
         </section>
     </main>
     <footer>
-        <div>
-            <img src="images/footer_rainydays.jpg" alt="The second logo of the Rainydays brand." class="footer_logo">
+        <div class="wrap_brand_phone_email">
+            <h1 class="brand_footer"><a href="index.html">RAINYDAYS</a></h1>
             <p>Phone: +47 911 11 111</p>
             <p>E-mail:
                 <a href="mailto:contact@rainydays.com" class="email_footer">contact@rainydays.com</a>
@@ -74,12 +83,13 @@
         </div>
         <div class="social-media">
             <h5>Social Media</h5>
-            <figure>
+            <div class="wrap-face-insta">
                 <i class="fab fa-facebook-f"></i>
-            </figure>
-            <figure>
                 <i class="fab fa-instagram"></i>
-            </figure>
+            </div>
+        </div>
+        <div class="footer_products">
+            <h5><a href="products.html">Products</a></h5>
         </div>
         <div class="footer_about">
             <h5><a href="about.html">About</a></h5>

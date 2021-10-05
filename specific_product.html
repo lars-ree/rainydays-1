@@ -10,6 +10,7 @@
     <link href="../CSS/font.css" rel="stylesheet">
     <link href="../CSS/cta.css" rel="stylesheet">
     <link href="../CSS/products.css" rel="stylesheet">
+    <link href="../CSS/specificProducts.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1dd9a9266b.js" crossorigin="anonymous"></script>
@@ -57,16 +58,19 @@
             </nav>
         </div>
         <div class="specific">
+            <div class="loader"></div>
             <div class="photos_specific-product"></div>
-            <div class="details_buying"></div>
-            <form action="choose.php" method="GET" class="size_color">
+            <div id="modal"></div>
+            <div class="details_buying">
+            </div>
+            <form class="size_color">
                 <h4><label for="size">Size</label></h4>
                 <select name="size" id="size">
-                    <option value="xs">XS</option>
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                    <option value="xl">XL</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
                 </select>
                 <div class="select-color">
                     <h4>Colour</h4>
@@ -93,32 +97,34 @@
     </main>
     <button id="cta_back-success">back</button>
     <footer>
-        <div>
-            <img src="../images/footer_rainydays.jpg" alt="The second logo of the Rainydays brand." class="footer_logo">
+        <div class="wrap_brand_phone_email">
+            <h1 class="brand_footer"><a href="index.html">RAINYDAYS</a></h1>
             <p>Phone: +47 911 11 111</p>
             <p>E-mail:
-                <a href: "emailto:contact@rainydays.com" class="email_footer">contact@rainydays.com</a>
+                <a href="mailto:contact@rainydays.com" class="email_footer">contact@rainydays.com</a>
             </p>
         </div>
         <div class="social-media">
             <h5>Social Media</h5>
-            <figure>
+            <div class="wrap-face-insta">
                 <i class="fab fa-facebook-f"></i>
-            </figure>
-            <figure>
                 <i class="fab fa-instagram"></i>
-            </figure>
+            </div>
+        </div>
+        <div class="footer_products">
+            <h5><a href="products.html">Products</a></h5>
         </div>
         <div class="footer_about">
-            <h5><a href="../about.html">About</a></h5>
+            <h5><a href="about.html">About</a></h5>
         </div>
         <div class="footer_contactus">
-            <h5><a href="../contact.html">Contact us</a></h5>
+            <h5><a href="contact.html">Contact us</a></h5>
         </div>
     </footer>
     <script src="js/script.js"></script>
     <script src="js/components.js"></script>
     <script src="/js/products/specificProduct.js" type="module"></script>
+    <script src="js/products/cart.js" type="module"></script>
 </body>
 
 </html>

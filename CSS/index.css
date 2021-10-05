@@ -1,11 +1,13 @@
 main{
     text-align: center;
 }
-.index-products{
+.index-products,
+.resultSearch{
     margin: 0 auto;
 }
 .index-products,
-.bestProducts{
+.bestProducts,
+.resultSearch{
     box-shadow: 1px 1px 5px 1px rgba(89, 84, 82, .2);
     display: flex;
     flex-direction: column;
@@ -22,6 +24,9 @@ main{
 .starsBest{
     max-width: 30%;
 }
+.starsBest-products_cards{
+    max-width: 50%;
+}
 .welcome_wrap{
     position: relative;
     margin-top: 8%;
@@ -33,11 +38,15 @@ main{
 }
 @media (min-width:600px){
     .index-products,
-    .bestProducts{
+    .bestProducts,
+    .resultSearch{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1%;
         max-width: 750px;
+    }
+    .resultSearch h3{
+        height: 44px;
     }
     .home_main{
         background-position-x: 200px;
@@ -49,5 +58,10 @@ main{
 @media (min-width:800px){
     .home_main{
         background-position-x: 500px;
+    }
+    .productsCards:hover{
+        transform: translateY(1px);
+        box-shadow: 0px 0px 20px rgba(36, 35, 35, 0.6);
+        padding: 1%;
     }
 }

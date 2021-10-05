@@ -16,6 +16,9 @@
     border-radius: 6px;
 }
 /*hamburger menu*/
+.fa-bars{
+    cursor: pointer;
+}
 nav{
     display: none;
 }
@@ -42,6 +45,10 @@ ul{
 li{
     list-style: none;
     padding: 7%;
+    color:#595452;
+}
+li:hover{
+    text-decoration: 2px solid underline;
 }
 @keyframes menu{
         0% {left: -1000px;}
@@ -75,7 +82,7 @@ header{
     display:flex;
 }
 .current{
-    text-decoration: underline;
+    text-decoration: 2px solid underline;
 }
 .navigation{
     order: -1;
@@ -102,6 +109,7 @@ header{
 .search_shopping{
     display: flex;
     justify-content: right;
+    max-width: 96%;
 }
 #search{
     max-width: 60%;
@@ -120,43 +128,64 @@ header{
     box-shadow: 5px 5px rgba(157, 165, 150, 0.5);
     border: 3px solid rgba(204, 73, 73, 0.596);
 }
+/*Best Products stars*/
+.starsBest-products{
+    max-width: 40%;
+}
+/*Loader*/
+.loader{
+    border: 10px solid;
+    border-top: 10px solid rgba(183, 221, 150, 0.5);
+    border-right: 10px solid rgba(191, 245, 104, 0.596);
+    border-bottom: 10px solid rgba(65, 90, 25, 0.972);
+    border-left: 10px solid rgba(4, 53, 12, 0.198);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 /*Footer*/
 footer{
     display: flex;
     margin-top: 14%;
-    background: linear-gradient(0.50turn, #B8BF80, #ebf8e1, #B8BF80);
+    background-color: #d2d6b0;
     margin-top: 7%;
 }
 footer{
-    color: #5F5C54;
     margin: 2% 0;
 }
+.brand_footer,
 .footer_about,
 .footer_contactus{
     margin: 0 1%;
 }
-.footer_logo,
+.footer_about:hover,
+.footer_contactus:hover,
+.footer_products:hover{
+    text-decoration: 2px solid underline;
+}
 .social-media,
 .footer_about,
 .footer_contactus{
     padding: 2% 1% 2% 0;
     flex: auto;
 }
-.footer_logo{
-    max-width: 50%;
-}
 .email_footer{
     font-style:italic;
     color: #595452;
     text-decoration: underline;
 }
-.social-media figure{
-    margin: 0 auto;
+.wrap-face-insta{
+    display: flex;
+    cursor: pointer;
+    justify-content: space-evenly;
 }
-.social-media i{
-    text-align: center;
-}
-
 /*Media Querie - mobile*/
 @media (min-width:320px) and (max-width:599px){
 /*hamburger menu*/
@@ -180,14 +209,13 @@ nav{
     position: fixed;
     z-index: 1000;
 }
-nav ul,
 .cart ul{
     padding: 4%;
     margin: 4%;
 }
 li{
     list-style: none;
-    padding: 3%;
+    padding: 3% 0 10% 0;
 }
 @keyframes menu{
         0% {left: -1000px;}
@@ -196,15 +224,8 @@ li{
 .logo{
     max-width: 50%;
 }
-.search_shopping{
-    max-width: 292px;
-}
-footer{
-    display: block;
-}
 #search{
-    margin-top: 2%;
-    max-height: 64%;
+    max-height: 70%;
 }
 .productsCards{
     border: 2px solid #595452;
@@ -212,30 +233,25 @@ footer{
     margin: 1% auto;
 }
 }
+@media (min-width:320px) and (max-width:699px){
+footer{
+    display: block;
+}
+.wrap_brand_phone_email{
+    text-align: center;
+}
+.social-media,
+.footer_about,
+.footer_contactus{
+    padding: 0;
+}
+footer h5{
+    margin: 3% 0;
+    text-align: center;
+}
+}
 /*Media Querie ------- Ipad and Desktop*/
 @media (min-width:600px){
-    .title-page{
-        font-size: 1.3em;
-        padding: 0;
-        max-width: 40%;
-        margin: 2% auto;
-    }
-    .contact_wrap,
-    .about_wrap{
-    background-position-x: 300px;
-    }
-    footer{
-        display:grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-    }
-}
-@media (min-width:1176px){
-    .current {
-        background: #F4F6F8;
-    }
-    .logoImg{
-        max-width: 80%;
-    }
     .navigation{
         order: 0;
         display: inline-flex;
@@ -252,19 +268,36 @@ footer{
     nav li {
         display: inline-flex;
         align-items: center;
-        border:1px solid #707070;
-        border-radius: 6px;
+        border-right: 1px solid #707070;
         margin-right: 1%;
     }
     .fas.fa-bars{
         display: none;
     }
+    .title-page{
+        font-size: 1.3em;
+        padding: 0;
+        max-width: 40%;
+        margin: 2% auto;
+    }
+    .contact_wrap,
+    .about_wrap{
+    background-position-x: 300px;
+    }
+}
+@media (min-width:700px){
+    footer{
+        display:grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+    }
+}
+@media (min-width:1176px){
+    .logoImg{
+        max-width: 80%;
+    }
     #search{
         max-width: 100%;
-    }
-    .search_shopping{
-        justify-content: right;
-        margin:1% 0 3% 70%;
     }
     .title-page{
         max-width: 50%;

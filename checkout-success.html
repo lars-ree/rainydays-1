@@ -73,13 +73,14 @@
                 </section>
             </div>
         </div>
-        <a href="products.html" class="cta_continuebuying">Continue Buying</a>
-        <button id="cta_back-success">back</button>
+        <div class="wrap_cta_back_continue">
+            <button id="cta_back-success">back</button>
+            <button class="cta_continuebuying"><a href="products.html">Continue Buying</a></button>
+        </div>
     </main>
     <footer>
-        <div>
-            <img src="../../images/footer_rainydays.jpg" alt="The second logo of the Rainydays brand."
-                class="footer_logo">
+        <div class="wrap_brand_phone_email">
+            <h1 class="brand_footer"><a href="index.html">RAINYDAYS</a></h1>
             <p>Phone: +47 911 11 111</p>
             <p>E-mail:
                 <a href="mailto:contact@rainydays.com" class="email_footer">contact@rainydays.com</a>
@@ -87,22 +88,23 @@
         </div>
         <div class="social-media">
             <h5>Social Media</h5>
-            <figure>
+            <div class="wrap-face-insta">
                 <i class="fab fa-facebook-f"></i>
-            </figure>
-            <figure>
                 <i class="fab fa-instagram"></i>
-            </figure>
+            </div>
+        </div>
+        <div class="footer_products">
+            <h5><a href="products.html">Products</a></h5>
         </div>
         <div class="footer_about">
-            <h5><a href="../../about.html">About</a></h5>
+            <h5><a href="about.html">About</a></h5>
         </div>
         <div class="footer_contactus">
-            <h5><a href="../../contact.html">Contact us</a></h5>
+            <h5><a href="contact.html">Contact us</a></h5>
         </div>
     </footer>
     <script src="js/script.js"></script>
-    <script src="js/products/checkoutSuccess.js"></script>
+    <script src="js/checkout/checkoutSuccess.js" type="module"></script>
 </body>
 
 </html>
