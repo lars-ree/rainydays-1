@@ -73,6 +73,7 @@ function accessoriesProducts(event) {
     getProducts(newUrl);
 }
 //-----------Search Products--------//
+productsCollections.innerHTML = `<div class = "loader"></div>`;
 function searchProducts() {
     const searchValue = document.querySelector("#search").value;
     const newUrl = url + `?search=${searchValue}`;

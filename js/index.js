@@ -43,8 +43,7 @@ async function bsProducts(url) {
 function searchProducts() {
     const searchValue = document.querySelector("#search").value;
     const newUrl = baseUrl + `?search=${searchValue}`;
-    console.log(newUrl);
-    indexProducts.innerHTML = " ";
+    indexProducts.innerHTML = `<div class = "loader"></div>`;
     getProductsSearch(newUrl);
 }
 iconSearch.addEventListener("click", searchProducts);
@@ -52,6 +51,7 @@ iconSearch.addEventListener("click", searchProducts);
 async function getProductsSearch(newUrl) {
     const response = await fetch(newUrl);
     const products = await response.json();
+    indexProducts.innerHTML = " ";
     resultSearch.innerHTML = " ";
     for (let i = 0; i < products.length; i++) {
         const idProduct = (products[i]);
